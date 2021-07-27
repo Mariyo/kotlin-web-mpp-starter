@@ -41,9 +41,11 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
+                implementation("io.ktor:ktor-server-core:1.6.0")
                 implementation("io.ktor:ktor-server-netty:1.6.0")
                 implementation("io.ktor:ktor-html-builder:1.6.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.2")
+                implementation("ch.qos.logback:logback-classic:1.2.3")
             }
         }
         val jvmTest by getting
@@ -58,7 +60,7 @@ kotlin {
 }
 
 application {
-    mainClassName = "ServerKt"
+    mainClass.set("ServerKt")
 }
 
 tasks.getByName<KotlinWebpack>("jsBrowserProductionWebpack") {
